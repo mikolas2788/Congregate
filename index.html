@@ -4,45 +4,22 @@
     <title>Simple Map</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     <link 
       rel="stylesheet" 
       href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
       integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" 
       crossorigin="anonymous">
-    <script>
-      var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 40.765286, lng: -73.9674699},
-          zoom: 13
-        });
-        // marker for current location eventually
-      }
-    </script>
+    <script src="lib/map_create.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgudF818cVj9RRgX_oGbCYyungikoaZ3U&callback=initMap"
-    async defer></script>
-    <!-- <style>
-      #map {
-        height: 80%;
-        width: 80%; 
-      }
-      html, body {
-        color: #ffffff; 
-        background-color: #353e48; 
-        font-family: sans-serif; 
-        height: 100%;
-        width: 80%; 
-        margin: 0;
-        padding: 0;
-      }
-    </style> -->
+      async defer></script>
   </head>
   <body>
     <div class='main-strip'>
       <div class='top'>
         <h1>
-          Title goes here
+          People Density
         </h1>
       </div>
 
@@ -55,17 +32,17 @@
       </div>
       
       <div class='bottom'>
-          <a className='footer-links' href='https://github.com/mikolas2788'>
-            <i className='fab fa-github'></i> Myron's Github
+          <a class='bottom-links' href='https://github.com/mikolas2788'>
+            <i class='fab fa-github'></i> Myron's Github
           </a>
-          <a className='footer-links' href='https://imgur.com/a/MTXvfda'>
-            <i className='fab fa-linkedin'></i> Myron's Linkedin
+          <a class='bottom-links' href='https://www.linkedin.com/in/myron-yook-97368197/'>
+            <i class='fab fa-linkedin'></i> Myron's Linkedin
           </a>
-          <a className='footer-links' href='https://imgur.com/a/iePDsSV'>
-            <i className='fab fa-facebook'></i> Myron's Facebook
+          <a class='bottom-links' href='https://imgur.com/a/MTXvfda'>
+            <i class='fab fa-facebook'></i> Myron's Facebook
           </a>
-          <a className='footer-links' href='https://www.meetup.com/'>
-            <i className='fab fa-meetup'></i> The Real Meetup
+          <a class='bottom-links' href='https://rendezvous-meetup.herokuapp.com/#/'>
+            <i class='fab fa-meetup'></i> My Website
           </a>
       </div>
     </div>

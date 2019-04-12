@@ -1,0 +1,21 @@
+{
+  "name": "NYC-Turnstile-Data-Visualization",
+  "version": "1.0.0",
+  "description": "### Overview This project will visualize trends in people movement activity in NYC based on subway turnstile usage data provided by the MTA. Businesses may find this useful by observing peak activity throughout the day and maximize their efficiency in targetting prospective clients.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack --mode=development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikolas2788/NYC-Turnstile-Data-Visualization.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikolas2788/NYC-Turnstile-Data-Visualization/issues"
+  },
+  "homepage": "https://github.com/mikolas2788/NYC-Turnstile-Data-Visualization#readme"
+}
