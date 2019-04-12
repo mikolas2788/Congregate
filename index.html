@@ -4,21 +4,12 @@
     <title>Simple Map</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
-    <style>
-      #map {
-        height: 80%;
-        width: 80%; 
-      }
-      html, body {
-        height: 100%;
-        width: 80%; 
-        margin: 0;
-        padding: 0;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="map"></div>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link 
+      rel="stylesheet" 
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" 
+      crossorigin="anonymous">
     <script>
       var map;
       function initMap() {
@@ -31,5 +22,52 @@
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgudF818cVj9RRgX_oGbCYyungikoaZ3U&callback=initMap"
     async defer></script>
+    <!-- <style>
+      #map {
+        height: 80%;
+        width: 80%; 
+      }
+      html, body {
+        color: #ffffff; 
+        background-color: #353e48; 
+        font-family: sans-serif; 
+        height: 100%;
+        width: 80%; 
+        margin: 0;
+        padding: 0;
+      }
+    </style> -->
+  </head>
+  <body>
+    <div class='main-strip'>
+      <div class='top'>
+        <h1>
+          Title goes here
+        </h1>
+      </div>
+
+      <div class='middle'> 
+        <div class='left'>
+          This is left side
+        </div>
+        <div id="map">
+        </div>
+      </div>
+      
+      <div class='bottom'>
+          <a className='footer-links' href='https://github.com/mikolas2788'>
+            <i className='fab fa-github'></i> Myron's Github
+          </a>
+          <a className='footer-links' href='https://imgur.com/a/MTXvfda'>
+            <i className='fab fa-linkedin'></i> Myron's Linkedin
+          </a>
+          <a className='footer-links' href='https://imgur.com/a/iePDsSV'>
+            <i className='fab fa-facebook'></i> Myron's Facebook
+          </a>
+          <a className='footer-links' href='https://www.meetup.com/'>
+            <i className='fab fa-meetup'></i> The Real Meetup
+          </a>
+      </div>
+    </div>
   </body>
 </html>
