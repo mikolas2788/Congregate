@@ -43,6 +43,17 @@
           console.log(error); 
         })
       }
+
+      var fs = require("fs");
+      var fileContent = newArr;
+
+        fs.writeFile("./sample.txt", fileContent, (err) => {
+            if (err) {
+                console.error(err);
+                return;
+            };
+            console.log("File has been created");
+        });
     </script>
 
     <div class='main-strip'>
