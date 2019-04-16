@@ -17,8 +17,34 @@
     <script 
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgudF818cVj9RRgX_oGbCYyungikoaZ3U&callback=initMap&libraries=visualization"
       async defer></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
   </head>
   <body>
+    
+    <script>
+      let locations = ['74-44 45th ave, Elmhurst, NY 11373', 'app academy NYC'];
+      let newArr = []; 
+      locations.forEach(location => {
+        (geocode(location)); 
+      });
+      
+      function geocode (location) {
+        axios.get('https://maps.googleapis.com/maps/api/geocode/json',{
+          params: {
+            address: location, 
+            key: 'AIzaSyAgudF818cVj9RRgX_oGbCYyungikoaZ3U'
+          }  
+        })
+        .then( function(response){
+           newArr.push((response.data.results[0].geometry.location))
+        })
+        .catch( function(error) {
+          console.log(error); 
+        })
+      }
+    </script>
+
     <div class='main-strip'>
       <div class='top'>
         <h1>
