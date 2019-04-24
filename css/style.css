@@ -19,7 +19,7 @@ html, body {
     display: flex; 
     justify-content: center;
     align-items: center; 
-    height: 100px;
+    height: 80px;
     width: 100%; 
 }
 
@@ -29,45 +29,55 @@ html, body {
     font-weight: bold; 
 }
 
-.middle {
+.main {
     display: flex; 
     flex-direction: row; 
-    height: auto;
+    height: 500px;
     width: 100%; 
     border-top: 1px solid rgba(255,255,255,0.12); 
 }
 
 .left {
-    height: 600px; 
-    width: 35vw; 
+    height: auto; 
+    width: 15%; 
     display: flex; 
     justify-content: center;
     align-items: center; 
+    flex-direction: column;
 }
 
 #map {
-    height: 600px;
-    width: 65vw; 
-    margin-right: 10px; 
+    height: auto;
+    width: 70%; 
 }
 
-.bottom {
+.right {
+    height: auto; 
+    width: 15%; 
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    flex-direction: column; 
+
+}
+
+.url-links {
     display: flex; 
     justify-content: center;
     align-items: center; 
     height: 100px;
     width: 100%;  
-    font-size: 20px; 
+    font-size: 70px; 
     font-weight: bold; 
-    border-top: 1px solid rgba(255,255,255,0.12); 
 }
 
-.bottom-links:hover {
+.url-links:hover {
     color: #00a2c7; 
     transform: scale(1.1); 
     transition: 0.5s;
 }
 
-.bottom a {
-    margin-right: 30px; 
+.url-links i {
+    margin-bottom: 30px; 
+    cursor: pointer; 
 }
