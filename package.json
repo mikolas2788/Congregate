@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/mikolas2788/NYC-Turnstile-Data-Visualization#readme",
   "dependencies": {
+    "file-system": "^2.2.2",
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.0"
   }

@@ -11,7 +11,11 @@
       href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
       integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" 
       crossorigin="anonymous">
+    
+    <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="lib/map_stations.js"></script>
+    <script src="lib/station_names.js"></script>
     <script src="lib/map_create.js"></script>
     <script src="lib/map_style.js"></script>
     <script 
@@ -19,35 +23,58 @@
       async defer></script>
   </head>
   <body>
+    
+    <!-- <script>
+      let newArr = []; 
+      station_names.forEach(station => {
+        (geocode(station["STATION"])); 
+      });
+      
+      function geocode (station) {
+        axios.get('https://maps.googleapis.com/maps/api/geocode/json',{
+          params: {
+            address: station, 
+            key: 'AIzaSyAgudF818cVj9RRgX_oGbCYyungikoaZ3U'
+          }  
+        })
+        .then( function(response){
+          debugger 
+           newArr.push(response.data.results[0].geometry.location)
+           return newArr; 
+        })
+        .catch( function(error) {
+          console.log(error); 
+        })
+      }
+    </script> -->
+
     <div class='main-strip'>
       <div class='top'>
         <h1>
-          People Density
+          Congregate
         </h1>
       </div>
-
-      <div class='middle'> 
+      <div class='main'> 
         <div class='left'>
-          This is left side
+          <a class='url-links' href='https://github.com/mikolas2788'>
+            <i class='fab fa-github'></i>
+          </a>
+          <a class='url-links' href='https://www.linkedin.com/in/myron-yook-97368197/'>
+            <i class='fab fa-linkedin'></i>
+          </a>
         </div>
         <div id="map">
         </div>
-      </div>
-      
-      <div class='bottom'>
-          <a class='bottom-links' href='https://github.com/mikolas2788'>
-            <i class='fab fa-github'></i> Myron's Github
+        <div class='right'>
+          <a class='url-links' href='https://imgur.com/a/MTXvfda'>
+            <i class='fab fa-facebook'></i>
           </a>
-          <a class='bottom-links' href='https://www.linkedin.com/in/myron-yook-97368197/'>
-            <i class='fab fa-linkedin'></i> Myron's Linkedin
+          <a class='url-links' href='https://rendezvous-meetup.herokuapp.com/#/'>
+            <i class='fab fa-meetup'></i>
           </a>
-          <a class='bottom-links' href='https://imgur.com/a/MTXvfda'>
-            <i class='fab fa-facebook'></i> Myron's Facebook
-          </a>
-          <a class='bottom-links' href='https://rendezvous-meetup.herokuapp.com/#/'>
-            <i class='fab fa-meetup'></i> My Website
-          </a>
+        </div>
       </div>
     </div>
   </body>
+    <script src="dist/bundle.js"></script>
 </html>
