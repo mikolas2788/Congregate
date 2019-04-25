@@ -1,7 +1,7 @@
 html, body {
-    color: #ffffff; 
+    color: #bbb; 
+    font-family: 'Kanit', sans-serif;
     background-color: #353e48; 
-    font-family: sans-serif; 
     height: 100%;
     width: 100%; 
     margin: 0;
@@ -16,6 +16,7 @@ html, body {
 }
 
 .top {
+    background-color: #353e48; 
     display: flex; 
     justify-content: center;
     align-items: center; 
@@ -24,21 +25,22 @@ html, body {
 }
 
 .top h1 {
-    color: white; 
-    font-size: 30px; 
+    color: #ccc; 
+    font-size: 48px; 
     font-weight: bold; 
 }
 
 .main {
     display: flex; 
     flex-direction: row; 
-    height: 500px;
+    height: 600px;
     width: 100%; 
     border-top: 1px solid rgba(255,255,255,0.12); 
 }
  
 .left {
-    height: auto; 
+        background-color: #bbb; 
+        margin-right: 30px; 
     width: 15%; 
     display: flex; 
     justify-content: center;
@@ -48,18 +50,17 @@ html, body {
 
 #map {
     height: auto;
-    width: 70%; 
+    width: 85%; 
 }
 
-.right {
+/* .right {
     height: auto; 
     width: 15%; 
     display: flex; 
     justify-content: center;
     align-items: center; 
     flex-direction: column; 
-
-}
+} */
 
 .url-links {
     display: flex; 
@@ -68,13 +69,14 @@ html, body {
     height: 100px;
     width: 100%;  
     font-size: 70px; 
-    font-weight: bold; 
+    color: #353e48; 
 }
 
 .url-links:hover {
-    color: #00a2c7; 
+    color: #048585; 
     transform: scale(1.1); 
     transition: 0.5s;
+    /* transform: rotate(20deg) */
 }
 
 .url-links i {
