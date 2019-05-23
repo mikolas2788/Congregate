@@ -28,3 +28,7 @@ file.each_line do |line|
 end
 
 puts hash.to_a
+
+# need to separate out values into smaller components
+# need to factor in resets
+# need to create multiple hashes containing arrays of each station with entry amount every 4 hour rotation
