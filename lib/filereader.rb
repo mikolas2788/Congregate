@@ -1,4 +1,4 @@
-f = File.open('turnstile_190511.txt')
+file = File.open('sample.txt')
 current_date = '';
 previous_value = nil;
 hash = Hash.new(0);
@@ -8,7 +8,7 @@ hash = Hash.new(0);
 # Which means that we can simply add, to hash[station], the difference between previous and current value, as long as we are within a date group.
 # If we hit a new date, we simply don't add to the count for that line because this is a new date and thus has no relation to the timestramp from the previous line.
 
-f.each_line do |line|
+file.each_line do |line|
     array = line.split(',');
     value = array[-2].to_i;
     date = array[6];
