@@ -1,7 +1,9 @@
-file = File.open('sample.txt')
+file = File.open('lib/05182019.txt')
 current_date = '';
 previous_value = nil;
 hash = Hash.new(0);
+# day = Hash.new
+# rotation = 
 
 # Data is organized by station, then by turnstile number, then by date, then by timestamp. 
 # But because we only want to count by station, we can combine counts from each turnstile of the same station,
