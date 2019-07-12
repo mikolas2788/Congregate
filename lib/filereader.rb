@@ -45,12 +45,13 @@ hash.each do |station, turnstiles|
         dates.each do |date, timeranges|
             timeranges.each do |timerange, counter|
                 if idx == 0
-                    hash[station][turnstile][date][timerange] = 0
                     idx += 1
-                else
                     hash[station][turnstile][date][timerange] = values[idx] - values[idx-1]
-                    debugger
+                else
+                    break if values[idx+1].nil?
                     idx += 1 
+                    hash[station][turnstile][date][timerange] = values[idx] - values[idx-1]
+                    # debugger
                 end 
             end 
         end 
