@@ -6,13 +6,13 @@ file = File.open('lib/test.txt')
 hash = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = Array.new }}}
 file.each_line do |line| 
     array = line.split(',')
-    # p array 
     station = array[3]
-    # p station
     turnstile = array[2]
     date = array[6]
     counter = array[-2]
     hash[station][turnstile][date].push(counter)
+    formatted_date = date.split('/').map { |ele| ele.to_i }
+    p hash[station].values.to_a
 end 
 
 puts hash
