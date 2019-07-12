@@ -32,29 +32,21 @@ file.each_line do |line|
     hash[station][turnstile][date]
 end
 
+p 
+
 # {"59 ST"=>
 #     {"02-00-00"=>
 #         {"05/11/2019"=>
 #           {"00:00 - 04:00"=>0, "04:00 - 08:00"=>0, "08:00 - 12:00"=>0, "12:00 - 16:00"=>0, "16:00 - 20:00"=>0, "20:00 - 00:00"=>0}, 
 # "05/12/2019"=>{"00:00 - 04:00"=>0, "04:00 - 08:00"=>0, "08:00 - 12:00"=>0, "12:00 - 16:00"=>0, "16:00 - 20:00"=>0, "20:00 - 00:00"=>0}}}}
 
-debugger
+# debugger
 hash.each do |station, turnstiles| 
     turnstiles.each do |turnstile, dates|
         dates.each do |date, timeranges|
             timeranges.each do |timerange, counter|
-                if timerange == '00:00 - 04:00'
-                    hash[station][turnstile][date][timerange] = 'monkey'
-                # elsif timestamp == '04:00 - 08:00'
-
-                # elsif timestamp == '08:00 - 12:00'
-
-                # elsif timestamp == '12:00 - 16:00'
-
-                # elsif timestamp == '16:00 - 20:00'
-
-                # elsif timestamp == '20:00 - 00:00'
-                end 
+                hash[station][turnstile][date][timerange] = values[idx]
+                idx += 1
             end 
         end 
     end 
