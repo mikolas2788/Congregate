@@ -1,4 +1,4 @@
-# require 'byebug'
+require 'byebug'
 
 file = File.open('lib/test.txt')
 # hash = Hash.new(Hash.new(Hash.new(Array.new())))
@@ -28,11 +28,11 @@ file.each_line do |line|
     station = array[3]
     turnstile = array[2]
     date = array[6]
-    values << array[-2]
+    values << array[-2].to_i
     hash[station][turnstile][date]
 end
 
-p 
+p values 
 
 # {"59 ST"=>
 #     {"02-00-00"=>
@@ -40,13 +40,18 @@ p
 #           {"00:00 - 04:00"=>0, "04:00 - 08:00"=>0, "08:00 - 12:00"=>0, "12:00 - 16:00"=>0, "16:00 - 20:00"=>0, "20:00 - 00:00"=>0}, 
 # "05/12/2019"=>{"00:00 - 04:00"=>0, "04:00 - 08:00"=>0, "08:00 - 12:00"=>0, "12:00 - 16:00"=>0, "16:00 - 20:00"=>0, "20:00 - 00:00"=>0}}}}
 
-# debugger
 hash.each do |station, turnstiles| 
     turnstiles.each do |turnstile, dates|
         dates.each do |date, timeranges|
             timeranges.each do |timerange, counter|
-                hash[station][turnstile][date][timerange] = values[idx]
-                idx += 1
+                if idx == 0
+                    hash[station][turnstile][date][timerange] = 0
+                    idx += 1
+                else
+                    hash[station][turnstile][date][timerange] = values[idx] - values[idx-1]
+                    debugger
+                    idx += 1 
+                end 
             end 
         end 
     end 
