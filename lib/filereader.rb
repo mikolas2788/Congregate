@@ -1,9 +1,12 @@
+# require 'byebug'
+
 file = File.open('lib/test.txt')
 # hash = Hash.new(Hash.new(Hash.new(Array.new())))
 # hash = station : turnstile : date : [1, 2, 3, 4, 5, 6, 7]
 # h = Hash.new { |hash, key| hash[key] = "Go Fish: #{key}" }
 # p hash
 
+# structure of data 
 # hash = station : turnstile : date : timestamp : difference
 
 =begin
@@ -18,7 +21,8 @@ timestamp
 
 hash = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = { '00:00 - 04:00' => 0, '04:00 - 08:00' => 0, '08:00 - 12:00' => 0, '12:00 - 16:00' => 0, '16:00 - 20:00' => 0, '20:00 - 00:00' => 0  }}}}
 values = []
- 
+idx = 0 
+
 file.each_line do |line| 
     array = line.split(',')
     station = array[3]
@@ -28,34 +32,33 @@ file.each_line do |line|
     hash[station][turnstile][date]
 end
 
-# .each do |timestamp|
+# {"59 ST"=>
+#     {"02-00-00"=>
+#         {"05/11/2019"=>
+#           {"00:00 - 04:00"=>0, "04:00 - 08:00"=>0, "08:00 - 12:00"=>0, "12:00 - 16:00"=>0, "16:00 - 20:00"=>0, "20:00 - 00:00"=>0}, 
+# "05/12/2019"=>{"00:00 - 04:00"=>0, "04:00 - 08:00"=>0, "08:00 - 12:00"=>0, "12:00 - 16:00"=>0, "16:00 - 20:00"=>0, "20:00 - 00:00"=>0}}}}
 
-#     if timestamp == '00:00 - 04:00'
+debugger
+hash.each do |station, turnstiles| 
+    turnstiles.each do |turnstile, dates|
+        dates.each do |date, timeranges|
+            timeranges.each do |timerange, counter|
+                if timerange == '00:00 - 04:00'
+                    hash[station][turnstile][date][timerange] = 'monkey'
+                # elsif timestamp == '04:00 - 08:00'
 
-#     elsif timestamp == '04:00 - 08:00'
+                # elsif timestamp == '08:00 - 12:00'
 
-#     elsif timestamp == '08:00 - 12:00'
+                # elsif timestamp == '12:00 - 16:00'
 
-#     elsif timestamp == '12:00 - 16:00'
+                # elsif timestamp == '16:00 - 20:00'
 
-#     elsif timestamp == '16:00 - 20:00'
-
-#     elsif timestamp == '20:00 - 00:00'
-
-#     end 
-
-# hash.each do |station|
-#     station.each do |turnstile|
-#         turnstile.each do |date| 
-#             formatted_date = date.split('/').map { |ele| ele.to_i }
-#             date.each.with_index do |counter| 
-#                 if 
-                    
-#                 end 
-#             end 
-#         end 
-#     end 
-# end 
+                # elsif timestamp == '20:00 - 00:00'
+                end 
+            end 
+        end 
+    end 
+end 
 
 puts hash
 
