@@ -2,18 +2,60 @@ file = File.open('lib/test.txt')
 # hash = Hash.new(Hash.new(Hash.new(Array.new())))
 # hash = station : turnstile : date : [1, 2, 3, 4, 5, 6, 7]
 # h = Hash.new { |hash, key| hash[key] = "Go Fish: #{key}" }
+# p hash
 
-hash = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = Array.new }}}
+# hash = station : turnstile : date : timestamp : difference
+
+=begin
+timestamp
+'00:00 - 04:00': 0
+'04:00 - 08:00': 0 
+'08:00 - 12:00': 0 
+'12:00 - 16:00': 0 
+'16:00 - 20:00': 0 
+'20:00 - 00:00': 0 
+=end 
+
+hash = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = { '00:00 - 04:00' => 0, '04:00 - 08:00' => 0, '08:00 - 12:00' => 0, '12:00 - 16:00' => 0, '16:00 - 20:00' => 0, '20:00 - 00:00' => 0  }}}}
+values = []
+ 
 file.each_line do |line| 
     array = line.split(',')
     station = array[3]
     turnstile = array[2]
     date = array[6]
-    counter = array[-2]
-    hash[station][turnstile][date].push(counter)
-    formatted_date = date.split('/').map { |ele| ele.to_i }
-    p hash[station].values.to_a
-end 
+    values << array[-2]
+    hash[station][turnstile][date]
+end
+
+# .each do |timestamp|
+
+#     if timestamp == '00:00 - 04:00'
+
+#     elsif timestamp == '04:00 - 08:00'
+
+#     elsif timestamp == '08:00 - 12:00'
+
+#     elsif timestamp == '12:00 - 16:00'
+
+#     elsif timestamp == '16:00 - 20:00'
+
+#     elsif timestamp == '20:00 - 00:00'
+
+#     end 
+
+# hash.each do |station|
+#     station.each do |turnstile|
+#         turnstile.each do |date| 
+#             formatted_date = date.split('/').map { |ele| ele.to_i }
+#             date.each.with_index do |counter| 
+#                 if 
+                    
+#                 end 
+#             end 
+#         end 
+#     end 
+# end 
 
 puts hash
 
