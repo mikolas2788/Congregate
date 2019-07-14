@@ -1,4 +1,4 @@
-# require 'byebug'
+require 'byebug'
 
 # hash = Hash.new(Hash.new(Hash.new(Array.new())))
 # hash = station : turnstile : date : [1, 2, 3, 4, 5, 6, 7]
@@ -18,6 +18,7 @@ timestamp
 '20:00 - 00:00': 0 
 =end 
 
+# Sample Structure
 # {"59 ST"=>
 #     {"02-00-00"=>
 #         {"05/11/2019"=>
@@ -30,7 +31,8 @@ entries = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[
 exits = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = { '00:00 - 04:00' => 0, '04:00 - 08:00' => 0, '08:00 - 12:00' => 0, '12:00 - 16:00' => 0, '16:00 - 20:00' => 0, '20:00 - 00:00' => 0  }}}}
 entry = [] 
 exit = [] 
-idx = 0 
+idx1 = 0 
+idx2 = 0
 
 file.each_line do |line| 
     array = line.split(',')
@@ -47,13 +49,13 @@ entries.each do |station, turnstiles|
     turnstiles.each do |turnstile, dates|
         dates.each do |date, timeranges|
             timeranges.each do |timerange, counter|
-                if idx == 0
-                    idx += 1
-                    entries[station][turnstile][date][timerange] = values[idx] - values[idx-1]
+                if idx1 == 0
+                    idx1 += 1
+                    entries[station][turnstile][date][timerange] = entry[idx1] - entry[idx1-1]
                 else
-                    break if values[idx+1].nil?
-                    idx += 1 
-                    entries[station][turnstile][date][timerange] = values[idx] - values[idx-1]
+                    break if entry[idx1+1].nil?
+                    idx1 += 1 
+                    entries[station][turnstile][date][timerange] = entry[idx1] - entry[idx1-1]
                 end 
             end 
         end 
@@ -64,20 +66,21 @@ exits.each do |station, turnstiles|
     turnstiles.each do |turnstile, dates|
         dates.each do |date, timeranges|
             timeranges.each do |timerange, counter|
-                if idx == 0
-                    idx += 1
-                    exits[station][turnstile][date][timerange] = values[idx] - values[idx-1]
+                if idx2 == 0
+                    idx2 += 1
+                    exits[station][turnstile][date][timerange] = exit[idx2] - exit[idx2-1]
                 else
-                    break if values[idx+1].nil?
-                    idx += 1
-                    exits[station][turnstile][date][timerange] = values[idx] - values[idx-1]
+                    break if exit[idx2+1].nil?
+                    idx2 += 1
+                    exits[station][turnstile][date][timerange] = exit[idx2] - exit[idx2-1]
                 end 
             end 
         end 
     end 
 end 
 
-puts hash
+puts entries
+puts exits
 
 #next step is to add the counter total for all turnstiles within one station
 
