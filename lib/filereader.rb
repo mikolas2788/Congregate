@@ -6,7 +6,10 @@ require 'byebug'
 # p hash
 
 # structure of data 
+# per turnstiles difference
 # hash = station : turnstile : date : timestamp : difference
+# per station total count
+# hash = station : date : timestamp : total 
 
 =begin
 timestamp
@@ -29,6 +32,8 @@ file = File.open('lib/test.txt')
 
 entries = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = { '00:00 - 04:00' => 0, '04:00 - 08:00' => 0, '08:00 - 12:00' => 0, '12:00 - 16:00' => 0, '16:00 - 20:00' => 0, '20:00 - 00:00' => 0  }}}}
 exits = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = { '00:00 - 04:00' => 0, '04:00 - 08:00' => 0, '08:00 - 12:00' => 0, '12:00 - 16:00' => 0, '16:00 - 20:00' => 0, '20:00 - 00:00' => 0  }}}}
+station_entries = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = { '00:00 - 04:00' => 0, '04:00 - 08:00' => 0, '08:00 - 12:00' => 0, '12:00 - 16:00' => 0, '16:00 - 20:00' => 0, '20:00 - 00:00' => 0  }}}
+station_exits = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = { '00:00 - 04:00' => 0, '04:00 - 08:00' => 0, '08:00 - 12:00' => 0, '12:00 - 16:00' => 0, '16:00 - 20:00' => 0, '20:00 - 00:00' => 0  }}}
 entry = [] 
 exit = [] 
 idx1 = 0 
@@ -43,6 +48,8 @@ file.each_line do |line|
     exit << array[-1].to_i
     entries[station][turnstile][date]
     exits[station][turnstile][date]
+    station_entries[station][date]
+    station_exits[station][date]
 end 
 
 entries.each do |station, turnstiles| 
@@ -83,6 +90,27 @@ puts entries
 puts exits
 
 #next step is to add the counter total for all turnstiles within one station
+
+entries.each do |station1, turnstiles| 
+    turnstiles.each do |turnstile, dates1|
+        dates1.each do |date1, timeranges|
+            timeranges.each do |timerange, counter|
+            end 
+        end 
+    end 
+end 
+
+station_entries.each do |station2, dates2| 
+    dates2.each do |date2, total| 
+        if station1 == station2 && date1 == date2 
+            
+        end 
+    end 
+end 
+
+
+
+
 
 # file = File.open('lib/05182019.txt')
 # current_date = '';
