@@ -1,6 +1,5 @@
-require 'byebug'
+# require 'byebug'
 
-file = File.open('lib/test.txt')
 # hash = Hash.new(Hash.new(Hash.new(Array.new())))
 # hash = station : turnstile : date : [1, 2, 3, 4, 5, 6, 7]
 # h = Hash.new { |hash, key| hash[key] = "Go Fish: #{key}" }
@@ -19,6 +18,14 @@ timestamp
 '20:00 - 00:00': 0 
 =end 
 
+# {"59 ST"=>
+#     {"02-00-00"=>
+#         {"05/11/2019"=>
+#           {"00:00 - 04:00"=>0, "04:00 - 08:00"=>0, "08:00 - 12:00"=>0, "12:00 - 16:00"=>0, "16:00 - 20:00"=>0, "20:00 - 00:00"=>0}, 
+# "05/12/2019"=>{"00:00 - 04:00"=>0, "04:00 - 08:00"=>0, "08:00 - 12:00"=>0, "12:00 - 16:00"=>0, "16:00 - 20:00"=>0, "20:00 - 00:00"=>0}}}}
+
+file = File.open('lib/test.txt')
+
 hash = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = { '00:00 - 04:00' => 0, '04:00 - 08:00' => 0, '08:00 - 12:00' => 0, '12:00 - 16:00' => 0, '16:00 - 20:00' => 0, '20:00 - 00:00' => 0  }}}}
 values = []
 idx = 0 
@@ -30,15 +37,7 @@ file.each_line do |line|
     date = array[6]
     values << array[-2].to_i
     hash[station][turnstile][date]
-end
-
-p values 
-
-# {"59 ST"=>
-#     {"02-00-00"=>
-#         {"05/11/2019"=>
-#           {"00:00 - 04:00"=>0, "04:00 - 08:00"=>0, "08:00 - 12:00"=>0, "12:00 - 16:00"=>0, "16:00 - 20:00"=>0, "20:00 - 00:00"=>0}, 
-# "05/12/2019"=>{"00:00 - 04:00"=>0, "04:00 - 08:00"=>0, "08:00 - 12:00"=>0, "12:00 - 16:00"=>0, "16:00 - 20:00"=>0, "20:00 - 00:00"=>0}}}}
+end 
 
 hash.each do |station, turnstiles| 
     turnstiles.each do |turnstile, dates|
@@ -51,7 +50,6 @@ hash.each do |station, turnstiles|
                     break if values[idx+1].nil?
                     idx += 1 
                     hash[station][turnstile][date][timerange] = values[idx] - values[idx-1]
-                    # debugger
                 end 
             end 
         end 
@@ -59,6 +57,8 @@ hash.each do |station, turnstiles|
 end 
 
 puts hash
+
+#next step is to add the counter total for all turnstiles within one station
 
 # file = File.open('lib/05182019.txt')
 # current_date = '';
