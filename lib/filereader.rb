@@ -26,8 +26,10 @@ timestamp
 
 file = File.open('lib/test.txt')
 
-hash = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = { '00:00 - 04:00' => 0, '04:00 - 08:00' => 0, '08:00 - 12:00' => 0, '12:00 - 16:00' => 0, '16:00 - 20:00' => 0, '20:00 - 00:00' => 0  }}}}
-values = []
+entries = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = { '00:00 - 04:00' => 0, '04:00 - 08:00' => 0, '08:00 - 12:00' => 0, '12:00 - 16:00' => 0, '16:00 - 20:00' => 0, '20:00 - 00:00' => 0  }}}}
+exits = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = { '00:00 - 04:00' => 0, '04:00 - 08:00' => 0, '08:00 - 12:00' => 0, '12:00 - 16:00' => 0, '16:00 - 20:00' => 0, '20:00 - 00:00' => 0  }}}}
+entry = [] 
+exit = [] 
 idx = 0 
 
 file.each_line do |line| 
@@ -35,21 +37,40 @@ file.each_line do |line|
     station = array[3]
     turnstile = array[2]
     date = array[6]
-    values << array[-2].to_i
-    hash[station][turnstile][date]
+    entry << array[-2].to_i
+    exit << array[-1].to_i
+    entries[station][turnstile][date]
+    exits[station][turnstile][date]
 end 
 
-hash.each do |station, turnstiles| 
+entries.each do |station, turnstiles| 
     turnstiles.each do |turnstile, dates|
         dates.each do |date, timeranges|
             timeranges.each do |timerange, counter|
                 if idx == 0
                     idx += 1
-                    hash[station][turnstile][date][timerange] = values[idx] - values[idx-1]
+                    entries[station][turnstile][date][timerange] = values[idx] - values[idx-1]
                 else
                     break if values[idx+1].nil?
                     idx += 1 
-                    hash[station][turnstile][date][timerange] = values[idx] - values[idx-1]
+                    entries[station][turnstile][date][timerange] = values[idx] - values[idx-1]
+                end 
+            end 
+        end 
+    end 
+end 
+
+exits.each do |station, turnstiles| 
+    turnstiles.each do |turnstile, dates|
+        dates.each do |date, timeranges|
+            timeranges.each do |timerange, counter|
+                if idx == 0
+                    idx += 1
+                    exits[station][turnstile][date][timerange] = values[idx] - values[idx-1]
+                else
+                    break if values[idx+1].nil?
+                    idx += 1
+                    exits[station][turnstile][date][timerange] = values[idx] - values[idx-1]
                 end 
             end 
         end 
