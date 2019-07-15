@@ -38,6 +38,7 @@ entry = []
 exit = [] 
 idx1 = 0 
 idx2 = 0
+previous_turnstile = "02-00-00"
 
 file.each_line do |line| 
     array = line.split(',')
@@ -58,6 +59,10 @@ entries.each do |station, turnstiles|
             timeranges.each do |timerange, counter|
                 if idx1 == 0
                     idx1 += 1
+                    entries[station][turnstile][date][timerange] = entry[idx1] - entry[idx1-1]
+                elsif previous_turnstile != turnstile
+                    idx1 += 2
+                    previous_turnstile = turnstile
                     entries[station][turnstile][date][timerange] = entry[idx1] - entry[idx1-1]
                 else
                     break if entry[idx1+1].nil?
@@ -86,11 +91,11 @@ exits.each do |station, turnstiles|
     end 
 end 
 
-# puts entries
+p entries
 # puts exits
 
 #next step is to add the counter total for all turnstiles within one station
-debugger
+# debugger
 station_turnstiles = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = { '00:00 - 04:00' => 0, '04:00 - 08:00' => 0, '08:00 - 12:00' => 0, '12:00 - 16:00' => 0, '16:00 - 20:00' => 0, '20:00 - 00:00' => 0  }}}
 
 entries.each do |station, turnstiles| 
