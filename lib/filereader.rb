@@ -101,19 +101,30 @@ end
 
 #next step is to add the counter total for all turnstiles within one station
 # debugger
-station_turnstiles = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = { '00:00 - 04:00' => 0, '04:00 - 08:00' => 0, '08:00 - 12:00' => 0, '12:00 - 16:00' => 0, '16:00 - 20:00' => 0, '20:00 - 00:00' => 0  }}}
+station_turnstiles1 = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = { '00:00 - 04:00' => 0, '04:00 - 08:00' => 0, '08:00 - 12:00' => 0, '12:00 - 16:00' => 0, '16:00 - 20:00' => 0, '20:00 - 00:00' => 0  }}}
+station_turnstiles2 = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = { '00:00 - 04:00' => 0, '04:00 - 08:00' => 0, '08:00 - 12:00' => 0, '12:00 - 16:00' => 0, '16:00 - 20:00' => 0, '20:00 - 00:00' => 0  }}}
 
 entries.each do |station, turnstiles| 
     turnstiles.each do |turnstile, dates|
         dates.each do |date, timeranges|
             timeranges.each do |timerange, counter|
-                station_turnstiles[station][date][timerange] += counter
+                station_turnstiles1[station][date][timerange] += counter
             end 
         end 
     end 
 end
 
-p station_turnstiles
+exits.each do |station, turnstiles| 
+    turnstiles.each do |turnstile, dates|
+        dates.each do |date, timeranges|
+            timeranges.each do |timerange, counter|
+                station_turnstiles2[station][date][timerange] += counter
+            end 
+        end 
+    end 
+end
+
+p station_turnstiles1
 
 # file = File.open('lib/05182019.txt')
 # current_date = '';
