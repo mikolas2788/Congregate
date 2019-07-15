@@ -86,21 +86,24 @@ exits.each do |station, turnstiles|
     end 
 end 
 
-puts entries
-puts exits
+# puts entries
+# puts exits
 
 #next step is to add the counter total for all turnstiles within one station
+
+station_turnstiles = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = { '00:00 - 04:00' => 0, '04:00 - 08:00' => 0, '08:00 - 12:00' => 0, '12:00 - 16:00' => 0, '16:00 - 20:00' => 0, '20:00 - 00:00' => 0  }}}
 
 entries.each do |station, turnstiles| 
     turnstiles.each do |turnstile, dates|
         dates.each do |date, timeranges|
-            station_turnstiles = Hash.new { |h, k| h[k] = { '00:00 - 04:00' => 0, '04:00 - 08:00' => 0, '08:00 - 12:00' => 0, '12:00 - 16:00' => 0, '16:00 - 20:00' => 0, '20:00 - 00:00' => 0  }
             timeranges.each do |timerange, counter|
-                station_turnstiles[timerage] += counter 
+                station_turnstiles[station][date][timerange] += counter
             end 
         end 
     end 
-end 
+end
+
+p station_turnstiles
 
 # station_entries.each do |station2, dates2| 
 #     dates2.each do |date2, total| 
