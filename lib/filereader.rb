@@ -28,7 +28,7 @@ timestamp
 #           {"00:00 - 04:00"=>0, "04:00 - 08:00"=>0, "08:00 - 12:00"=>0, "12:00 - 16:00"=>0, "16:00 - 20:00"=>0, "20:00 - 00:00"=>0}, 
 # "05/12/2019"=>{"00:00 - 04:00"=>0, "04:00 - 08:00"=>0, "08:00 - 12:00"=>0, "12:00 - 16:00"=>0, "16:00 - 20:00"=>0, "20:00 - 00:00"=>0}}}}
 
-file = File.open('lib/test.txt')
+file = File.open('lib/05182019.txt')
 
 entries = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = { '00:00 - 04:00' => 0, '04:00 - 08:00' => 0, '08:00 - 12:00' => 0, '12:00 - 16:00' => 0, '16:00 - 20:00' => 0, '20:00 - 00:00' => 0  }}}}
 exits = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = { '00:00 - 04:00' => 0, '04:00 - 08:00' => 0, '08:00 - 12:00' => 0, '12:00 - 16:00' => 0, '16:00 - 20:00' => 0, '20:00 - 00:00' => 0  }}}}
@@ -38,7 +38,8 @@ entry = []
 exit = [] 
 idx1 = 0 
 idx2 = 0
-previous_turnstile = "02-00-00"
+previous_turnstile1 = "02-00-00"
+previous_turnstile2 = "02-00-00"
 
 file.each_line do |line| 
     array = line.split(',')
@@ -60,9 +61,9 @@ entries.each do |station, turnstiles|
                 if idx1 == 0
                     idx1 += 1
                     entries[station][turnstile][date][timerange] = entry[idx1] - entry[idx1-1]
-                elsif previous_turnstile != turnstile
+                elsif previous_turnstile1 != turnstile
                     idx1 += 2
-                    previous_turnstile = turnstile
+                    previous_turnstile1 = turnstile
                     entries[station][turnstile][date][timerange] = entry[idx1] - entry[idx1-1]
                 else
                     break if entry[idx1+1].nil?
@@ -81,6 +82,10 @@ exits.each do |station, turnstiles|
                 if idx2 == 0
                     idx2 += 1
                     exits[station][turnstile][date][timerange] = exit[idx2] - exit[idx2-1]
+                elsif previous_turnstile2 != turnstile
+                    idx1 += 2
+                    previous_turnstile2 = turnstile
+                    entries[station][turnstile][date][timerange] = entry[idx1] - entry[idx1-1]
                 else
                     break if exit[idx2+1].nil?
                     idx2 += 1
@@ -91,7 +96,7 @@ exits.each do |station, turnstiles|
     end 
 end 
 
-p entries
+# p entries
 # puts exits
 
 #next step is to add the counter total for all turnstiles within one station
@@ -109,18 +114,6 @@ entries.each do |station, turnstiles|
 end
 
 p station_turnstiles
-
-# station_entries.each do |station2, dates2| 
-#     dates2.each do |date2, total| 
-#         if station1 == station2 && date1 == date2 
-            
-#         end 
-#     end 
-# end 
-
-
-
-
 
 # file = File.open('lib/05182019.txt')
 # current_date = '';
