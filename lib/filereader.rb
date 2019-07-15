@@ -90,7 +90,7 @@ end
 # puts exits
 
 #next step is to add the counter total for all turnstiles within one station
-
+debugger
 station_turnstiles = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = { '00:00 - 04:00' => 0, '04:00 - 08:00' => 0, '08:00 - 12:00' => 0, '12:00 - 16:00' => 0, '16:00 - 20:00' => 0, '20:00 - 00:00' => 0  }}}
 
 entries.each do |station, turnstiles| 
