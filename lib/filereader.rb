@@ -125,6 +125,7 @@ exits.each do |station, turnstiles|
 end
 
 p station_turnstiles1
+p station_turnstiles2
 
 # file = File.open('lib/05182019.txt')
 # current_date = '';
