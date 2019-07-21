@@ -1,4 +1,4 @@
-require 'byebug'
+# require 'byebug'
 
 # hash = Hash.new(Hash.new(Hash.new(Array.new())))
 # hash = station : turnstile : date : [1, 2, 3, 4, 5, 6, 7]
