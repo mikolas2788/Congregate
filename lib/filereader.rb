@@ -1,33 +1,5 @@
 # require 'byebug'
 
-# hash = Hash.new(Hash.new(Hash.new(Array.new())))
-# hash = station : turnstile : date : [1, 2, 3, 4, 5, 6, 7]
-# h = Hash.new { |hash, key| hash[key] = "Go Fish: #{key}" }
-# p hash
-
-# structure of data 
-# per turnstiles difference
-# hash = station : turnstile : date : timestamp : difference
-# per station total count
-# hash = station : date : timestamp : total 
-
-=begin
-timestamp
-'00:00 - 04:00': 0
-'04:00 - 08:00': 0 
-'08:00 - 12:00': 0 
-'12:00 - 16:00': 0 
-'16:00 - 20:00': 0 
-'20:00 - 00:00': 0 
-=end 
-
-# Sample Structure
-# {"59 ST"=>
-#     {"02-00-00"=>
-#         {"05/11/2019"=>
-#           {"00:00 - 04:00"=>0, "04:00 - 08:00"=>0, "08:00 - 12:00"=>0, "12:00 - 16:00"=>0, "16:00 - 20:00"=>0, "20:00 - 00:00"=>0}, 
-# "05/12/2019"=>{"00:00 - 04:00"=>0, "04:00 - 08:00"=>0, "08:00 - 12:00"=>0, "12:00 - 16:00"=>0, "16:00 - 20:00"=>0, "20:00 - 00:00"=>0}}}}
-
 file = File.open('test.txt')
 
 entries = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = { '00:00 - 04:00' => 0, '04:00 - 08:00' => 0, '08:00 - 12:00' => 0, '12:00 - 16:00' => 0, '16:00 - 20:00' => 0, '20:00 - 00:00' => 0  }}}}
