@@ -1,5 +1,3 @@
-# require 'byebug'
-
 file = File.open('05182019.txt')
 entries = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = Hash.new(0)}}
 exits = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = Hash.new(0)}}
