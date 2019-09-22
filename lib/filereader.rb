@@ -34,6 +34,7 @@ file.each_line do |line|
     station = current[3]
     turnstile = current[2]
     date = current[6]
+    line = current[4]
     if !previous
         previous = current
         next
@@ -46,7 +47,7 @@ file.each_line do |line|
         timestamp = timestamps[previous_timestamp[0..1]]
         entries[station][date][timestamp] ||= 0
         exits[station][date][timestamp] ||= 0
-
+        
         previous_entries = previous[9].to_i
         current_entries = current[9].to_i
         previous_exits = previous[10].to_i
