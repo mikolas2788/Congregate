@@ -1,6 +1,7 @@
+# require 'byebug'
 file = File.open('05182019.txt')
-entries = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = Hash.new(0)}}
-exits = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = Hash.new(0)}}
+entries = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = Hash.new(0)}}}
+exits = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = Hash.new(0)}}}
 previous = nil
 timestamps = 
     {'00' => '00:00 - 04:00',
@@ -30,11 +31,12 @@ timestamps =
     }
 
 file.each_line do |line| 
+    # debugger
     current = line.split(',')
     station = current[3]
     turnstile = current[2]
     date = current[6]
-    line = current[4]
+    trains = current[4].to_s
     if !previous
         previous = current
         next
@@ -45,18 +47,18 @@ file.each_line do |line|
         date = previous[6] != date ? previous[6] : date 
         previous_timestamp = previous[7]
         timestamp = timestamps[previous_timestamp[0..1]]
-        entries[station][date][timestamp] ||= 0
-        exits[station][date][timestamp] ||= 0
-        
+        entries[station][trains][date][timestamp] ||= 0
+        exits[station][trains][date][timestamp] ||= 0
+
         previous_entries = previous[9].to_i
         current_entries = current[9].to_i
         previous_exits = previous[10].to_i
         current_exits = current[10].to_i
         if ((current_entries - previous_entries < 50000) && (current_entries - previous_entries > 0 ))
-            entries[station][date][timestamp] += current[9].to_i - previous[9].to_i
+            entries[station][trains][date][timestamp] += current[9].to_i - previous[9].to_i
         end 
         if ((current_exits - previous_exits < 50000) && (current_exits - previous_exits > 0 ))
-            exits[station][date][timestamp] += current[10].to_i - previous[10].to_i
+            exits[station][trains][date][timestamp] += current[10].to_i - previous[10].to_i
         end 
         previous = current
     end
