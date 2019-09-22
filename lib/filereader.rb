@@ -59,7 +59,15 @@ file.each_line do |line|
         end 
         previous = current
     end
-end 
+end  
 
  p entries 
 #  p exits
+
+# def to_builder
+#     JBuilder.new do |entries| 
+        
+#     end 
+# end 
+
+# jsonified = entries.to_json
