@@ -11,7 +11,7 @@ html, body {
 .main-strip {
     display: flex; 
     flex-direction: column; 
-    height: auto; 
+    height: 100%; 
     width: 100%; 
 }
 
@@ -33,14 +33,14 @@ html, body {
 .main {
     display: flex; 
     flex-direction: row; 
-    height: 600px;
+    height: 100%;
     width: 100%; 
     border-top: 1px solid rgba(255,255,255,0.12); 
 }
  
 .left {
-        background-color: #bbb; 
-        margin-right: 30px; 
+    background-color: #bbb; 
+    /* margin-right: 30px;  */
     width: 15%; 
     display: flex; 
     justify-content: center;

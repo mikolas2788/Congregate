@@ -1,5 +1,5 @@
 # require 'byebug'
-file = File.open('05182019.txt')
+file = File.open('turnstile_190921.txt')
 
 # Turnstile structure
 # entries = {
@@ -17,7 +17,7 @@ file = File.open('05182019.txt')
 # }
 # entries = stationName = trainLines = { controlArea = [], remoteUnit = [], dates = date = 0 }
 
-entries = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = { 'controlArea' => Array.new(0), 'remoteUnit' => Array.new(0), 'dates' => Hash.new { |h, k| h[k] = Hash.new(0)}}}}
+entries = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = { 'CONTROLAREA' => Array.new(0), 'REMOTEUNIT' => Array.new(0), 'DATES' => Hash.new { |h, k| h[k] = Hash.new(0)}}}}
 exits = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = Hash.new { |h, k| h[k] = Hash.new(0)}}}
 previous = nil
 timestamps = {
@@ -66,8 +66,8 @@ file.each_line do |line|
         previous_timestamp = previous[7]
         timestamp = timestamps[previous_timestamp[0..1]]
         station_obj = entries[station][trains]
-        station_obj["controlArea"].push(control_area) unless station_obj["controlArea"].include?(control_area)
-        station_obj["remoteUnit"].push(remote_unit) unless station_obj["remoteUnit"].include?(remote_unit)
+        station_obj["CONTROLAREA"].push(control_area) unless station_obj["CONTROLAREA"].include?(control_area)
+        station_obj["REMOTEUNIT"].push(remote_unit) unless station_obj["REMOTEUNIT"].include?(remote_unit)
         # entries[station][trains][date][timestamp] ||= 0
         # exits[station][trains][date][timestamp] ||= 0
         previous_entries = previous[9].to_i
@@ -75,7 +75,7 @@ file.each_line do |line|
         previous_exits = previous[10].to_i
         current_exits = current[10].to_i
         if ((current_entries - previous_entries < 50000) && (current_entries - previous_entries > 0 ))
-            entries[station][trains]["dates"][date][timestamp] += current[9].to_i - previous[9].to_i
+            entries[station][trains]["DATES"][date][timestamp] += current[9].to_i - previous[9].to_i
         end 
         # if ((current_exits - previous_exits < 50000) && (current_exits - previous_exits > 0 ))
         #     exits[station][trains][date][timestamp] += current[10].to_i - previous[10].to_i
