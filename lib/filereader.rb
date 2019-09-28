@@ -65,10 +65,9 @@ file.each_line do |line|
         date = previous[6] != date ? previous[6] : date 
         previous_timestamp = previous[7]
         timestamp = timestamps[previous_timestamp[0..1]]
-        # 
-        # station_obj = entries[station][trains]
-        # station_obj["CONTROLAREA"].push(control_area) unless station_obj["CONTROLAREA"].include?(control_area)
-        # station_obj["REMOTEUNIT"].push(remote_unit) unless station_obj["REMOTEUNIT"].include?(remote_unit)
+        station_obj = entries[station][trains]
+        station_obj["CONTROLAREA"].push(control_area) unless station_obj["CONTROLAREA"].include?(control_area)
+        station_obj["REMOTEUNIT"].push(remote_unit) unless station_obj["REMOTEUNIT"].include?(remote_unit)
         # entries[station][trains][date][timestamp] ||= 0
         # exits[station][trains][date][timestamp] ||= 0
         previous_entries = previous[9].to_i
@@ -76,14 +75,14 @@ file.each_line do |line|
         previous_exits = previous[10].to_i
         current_exits = current[10].to_i
         if ((current_entries - previous_entries < 50000) && (current_entries - previous_entries > 0 ))
-            # entries[station][trains]["DATES"][date][timestamp] += current[9].to_i - previous[9].to_i
+            entries[station][trains]["DATES"][date][timestamp] += current[9].to_i - previous[9].to_i
         end 
-        # if ((current_exits - previous_exits < 50000) && (current_exits - previous_exits > 0 ))
-        #     exits[station][trains][date][timestamp] += current[10].to_i - previous[10].to_i
-        # end 
+        if ((current_exits - previous_exits < 50000) && (current_exits - previous_exits > 0 ))
+            exits[station][trains]["DATES"][date][timestamp] += current[10].to_i - previous[10].to_i
+        end 
         previous = current
     end
 end  
 
  p entries 
-#  p exits
+ p exits
