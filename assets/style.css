@@ -20,7 +20,7 @@ html, body {
     display: flex; 
     justify-content: center;
     align-items: center; 
-    height: 80px;
+    min-height: 80px;
     width: 100%; 
 }
 
@@ -35,12 +35,13 @@ html, body {
     flex-direction: row; 
     height: 100%;
     width: 100%; 
-    border-top: 1px solid rgba(255,255,255,0.12); 
+    border-top: 1px solid black; 
 }
  
 .left {
     background-color: #bbb; 
-    /* margin-right: 30px;  */
+    min-width: 100px;
+    max-width: 120px;
     width: 15%; 
     display: flex; 
     justify-content: center;
@@ -50,17 +51,86 @@ html, body {
 
 #map {
     height: auto;
-    width: 85%; 
+    width: 100%; 
 }
 
-/* .right {
-    height: auto; 
-    width: 15%; 
+.dropdown-buttons {
+    position: absolute;
     display: flex; 
-    justify-content: center;
-    align-items: center; 
-    flex-direction: column; 
-} */
+    flex-direction: row; 
+    left: 20%; 
+    top: 15%; 
+    text-align: center; 
+}
+
+.date-dropdown {
+    margin-right: 20px; 
+}
+
+.date-dropdown:hover .date-dropdown-content { display: block; }
+
+.date-dropdown-button {
+    min-width: 90px; 
+    border: none;
+    background-color: #4CAF50;
+    padding: 10px;
+    color: white;
+    font-size: 16px;
+}
+
+.date-dropdown-button:hover { background-color: #3e8e41; }
+
+.date-dropdown-content {
+    display: none;
+    background-color: #f1f1f1;
+    width: 100%;
+    /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+    /* z-index: 1; */
+}
+
+.date-dropdown-content button {
+    color: black;
+    min-width: 90px; 
+    padding: 10px;
+    display: block;
+}
+
+.date-dropdown-content button:hover { background-color: #ddd; }
+
+.timestamp-dropdown {
+    margin-right: 20px; 
+}
+
+.timestamp-dropdown:hover .timestamp-dropdown-content { display: block; }
+
+.timestamp-dropdown-button {
+    min-width: 90px; 
+    border: none;
+    background-color: #4CAF50;
+    padding: 10px;
+    color: white;
+    font-size: 16px;
+}
+
+.timestamp-dropdown-button:hover { background-color: #3e8e41; }
+
+.timestamp-dropdown-content {
+    display: none;
+    background-color: #f1f1f1;
+    width: 100%;
+    /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+    /* z-index: 1; */
+}
+
+.timestamp-dropdown-content button {
+    color: black;
+    min-width: 90px; 
+    padding: 10px;
+    display: block;
+}
+
+.timestamp-dropdown-content button:hover { background-color: #ddd; }
+
 
 .url-links {
     display: flex; 
