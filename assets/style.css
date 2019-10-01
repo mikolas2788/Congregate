@@ -42,7 +42,7 @@ html, body {
     background-color: #bbb; 
     min-width: 100px;
     max-width: 120px;
-    width: 15%; 
+    /* width: 15%;  */
     display: flex; 
     justify-content: center;
     align-items: center; 
@@ -54,18 +54,24 @@ html, body {
     width: 100%; 
 }
 
-.dropdown-buttons {
+.selectors {
     position: absolute;
     display: flex; 
+    flex-wrap: wrap;
     flex-direction: row; 
-    left: 20%; 
-    top: 15%; 
+    left: 120px; 
+    top: 18%; 
     text-align: center; 
 }
 
-.date-dropdown {
+.selectors select {
+    min-width: 100px; 
+}
+
+.date-selector {
     margin-right: 20px; 
 }
+
 
 .date-dropdown:hover .date-dropdown-content { display: block; }
 
@@ -118,8 +124,6 @@ html, body {
     display: none;
     background-color: #f1f1f1;
     width: 100%;
-    /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
-    /* z-index: 1; */
 }
 
 .timestamp-dropdown-content button {
