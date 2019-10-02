@@ -51,9 +51,9 @@
         <div id="map">
         </div>
         <div class='selectors'>
-          <select class='date-selector' id='date-selector' onchange='heatMapRender()'>  
-            <option value='0'>DATE</option>
-            <option value='09/14/2019' selected>09/14/2019</option>
+          <select required class='date-selector' id='date-selector' onchange='heatMapRender()'>  
+            <option value='' hidden>Date</option>
+            <option value='09/14/2019' default>09/14/2019</option>
             <option value='09/15/2019'>09/15/2019</option>
             <option value='09/16/2019'>09/16/2019</option>
             <option value='09/17/2019'>09/17/2019</option>
@@ -61,9 +61,9 @@
             <option value='09/19/2019'>09/19/2019</option>
             <option value='09/20/2019'>09/20/2019</option>
           </select>
-          <select class='timestamp-selector' id='timestamp-selector' onchange='heatMapRender()'>  
-            <option value='0'>TIME</option>
-            <option value='00:00 - 04:00' selected>00:00 - 04:00</option>
+          <select required class='timestamp-selector' id='timestamp-selector' onchange='heatMapRender()'>  
+            <option value='' hidden>Time</option>
+            <option value='00:00 - 04:00' default>00:00 - 04:00</option>
             <option value='04:00 - 08:00'>04:00 - 08:00</option>
             <option value='08:00 - 12:00'>08:00 - 12:00</option>
             <option value='12:00 - 16:00'>12:00 - 16:00</option>
