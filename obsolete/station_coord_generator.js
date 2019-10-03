@@ -43,20 +43,15 @@
 
 let finalData = turnstileEntries; 
 // console.log(finalData); 
-// // debugger
 for (const controlArea in stationCoords) {
-    // debugger
     for (const stationName in finalData) {
-        // debugger
         for (const trainLines in finalData[stationName]) {
-            // debugger
             const stationLine = finalData[stationName][trainLines]; 
             if (stationLine["CONTROLAREA"].includes(controlArea) && 
                 stationLine["REMOTEUNIT"].includes(stationCoords[controlArea]["REMOTEUNIT"])) {
-                    if (!("COORDS" in stationLine)) {
-                        stationLine["COORDS"] = { "LATITUDE": stationCoords[controlArea]["LATITUDE"], "LONGITUDE": stationCoords[controlArea]["LONGITUDE"] }
-                    }
-                    // debugger 
+                if (!("COORDS" in stationLine)) {
+                    stationLine["COORDS"] = { "LATITUDE": stationCoords[controlArea]["LATITUDE"], "LONGITUDE": stationCoords[controlArea]["LONGITUDE"] }
+                }
             }
         }
     }

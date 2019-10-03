@@ -42,7 +42,6 @@ html, body {
     background-color: #bbb; 
     min-width: 100px;
     max-width: 120px;
-    /* width: 15%;  */
     display: flex; 
     justify-content: center;
     align-items: center; 
@@ -61,18 +60,37 @@ html, body {
     flex-direction: row; 
     left: 120px; 
     top: 18%; 
-    text-align: center; 
+    text-align-last: center; 
 }
 
 .selectors select {
-    min-width: 100px; 
+    font-family: sans-serif; 
+    font-size: 14px;
+    font-weight: 500; 
+    min-width: 120px; 
+    height: 25px; 
 }
 
 .date-selector {
-    margin-right: 20px; 
+    margin-right: 20px;
 }
 
-.date-dropdown:hover .date-dropdown-content { display: block; }
+.select-selected {
+    background-color: white; 
+}
+
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/* .date-dropdown:hover .date-dropdown-content { display: block; }
 
 .date-dropdown-button {
     min-width: 90px; 
@@ -89,8 +107,6 @@ html, body {
     display: none;
     background-color: #f1f1f1;
     width: 100%;
-    /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
-    /* z-index: 1; */
 }
 
 .date-dropdown-content button {
@@ -132,7 +148,7 @@ html, body {
     display: block;
 }
 
-.timestamp-dropdown-content button:hover { background-color: #ddd; }
+.timestamp-dropdown-content button:hover { background-color: #ddd; } */
 
 
 .url-links {
