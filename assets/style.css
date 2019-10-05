@@ -71,24 +71,21 @@ html, body {
     height: 25px; 
 }
 
+.train-selector {
+    margin-right: 20px;
+}
+
 .date-selector {
     margin-right: 20px;
 }
 
-.select-selected {
-    background-color: white; 
+.date-option {
+    background-color: white;
+    min-width: 120px;
+    height: 25px; 
+    text-align: center; 
 }
 
-.select-selected:after {
-  position: absolute;
-  content: "";
-  top: 14px;
-  right: 10px;
-  width: 0;
-  height: 0;
-  border: 6px solid transparent;
-  border-color: #fff transparent transparent transparent;
-}
 
 /* .date-dropdown:hover .date-dropdown-content { display: block; }
 

@@ -50,7 +50,21 @@
         </div>
         <div id="map">
         </div>
+        
         <div class='selectors'>
+          <select required class='train-selector' id='train-selector' onchange='heatMapRender()'>  
+            <!-- <option value='All'>All Trains</option> -->
+            <option value='All' default>All Trains</option>
+            <option value='1'>1</option>
+            <option value='2'>2</option>
+            <option value='3'>3</option>
+            <option value='4'>4</option>
+            <option value='5'>5</option>
+            <option value='6'>6</option>
+            <option value='7'>7</option>
+            <option value='F'>F</option>
+            <option value='4'>4</option>
+          </select>
           <select required class='date-selector' id='date-selector' onchange='heatMapRender()'>  
             <option value='' hidden>Date</option>
             <option value='09/14/2019'>09/14/2019</option>
