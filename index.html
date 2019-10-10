@@ -7,25 +7,22 @@
     <link rel="shortcut icon" type="image/png" href="./assets/images/subway.png">
     <link rel="stylesheet" type="text/css" href="./assets/style.css">
     <link rel="stylesheet" type="text/css" href="./assets/reset.css">
-    <link 
-      rel="stylesheet" 
-      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" 
-      crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/35f2d04978.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
     <!-- <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script> -->
     <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
     <!-- <script src="lib/station_coords.js"></script> -->
     <script src="lib/final_data.js"></script>
     <!-- <script src="lib/turnstile_190921.js"></script>
-    <script src="lib/station_coord_generator.js"></script>
-    <script src="lib/heatmapButtons.js"></script> -->
-    <script src="lib/map_create.js"></script>
-    <script src="lib/map_style.js"></script>
-    <script 
+      <script src="lib/station_coord_generator.js"></script>
+      <script src="lib/heatmapButtons.js"></script> -->
+      <script src="lib/map_create.js"></script>
+      <script src="lib/map_style.js"></script>
+      <script 
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgudF818cVj9RRgX_oGbCYyungikoaZ3U&callback=initMap&libraries=visualization"
       async defer>
     </script>
+    <!-- <script src="lib/heatmapButtons.js"></script> -->
   </head>
   <body>
     <div class='main-strip'>
@@ -36,6 +33,9 @@
       </div>
       <div class='main'> 
         <div class='left'>
+          <button class='info-modal-btn' id='info-modal-btn' onclick='popModal()'>
+            <i class="fas fa-question-circle"></i>
+          </button>
           <a class='url-links' href='https://mikolas2788.github.io/'>
             <i class="fas fa-home"></i>
           </a>
@@ -49,14 +49,13 @@
             <i class="fab fa-angellist"></i>
           </a>
         </div>
-        <div id="map">
-        </div>
-        <button class='description-btn' id='description-btn'>Button<i class="far fa-question-square"></i></button>
-        <div class='description-modal' id='description-modal'>
-          <div class='description-content'>
-            <span class='description-close'>&times;</span>
+        <div class='info-modal' id='info-modal'>
+          <div class='info-content'>
+            <span class='info-close'>&times;</span>
             <p>Congregate is a data visualization ...</p>
           </div>
+        </div>
+        <div id="map">
         </div>
         <div class='selectors'>
           <select required class='train-selector' id='train-selector' onchange='heatMapRender()'>  
@@ -126,4 +125,6 @@
     </div>
   </body>
     <script src="dist/bundle.js"></script>
+        <script src="lib/heatmapButtons.js"></script>
+
 </html>

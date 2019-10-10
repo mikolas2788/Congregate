@@ -38,6 +38,7 @@ html, body {
     border-top: 1px solid black; 
 }
  
+/* Left Panel */
 .left {
     background-color: #bbb; 
     min-width: 100px;
@@ -46,17 +47,47 @@ html, body {
     justify-content: center;
     align-items: center; 
     flex-direction: column;
+    padding-top: 15px; 
 }
 
-#map {
-    height: auto;
-    width: 100%; 
+.url-links {
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    height: 100px;
+    width: 100%;  
+    font-size: 70px; 
+    color: #353e48; 
 }
 
-.description-btn {
-    background-color: grey; 
+.url-links:hover {
+    color: #048585; 
+    transform: scale(1.1); 
+    transition: 0.5s;
 }
-.description-modal {
+
+.url-links i {
+    margin-bottom: 30px; 
+    cursor: pointer; 
+}
+
+.info-modal-btn {
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    height: 100px;
+    width: 100%;  
+    font-size: 70px; 
+    color: #353e48; 
+}
+
+.info-modal-btn:hover {
+    color: #048585; 
+    transform: scale(1.1); 
+    transition: 0.5s;
+}
+
+.info-modal {
     display: none; 
     position: fixed;
     z-index: 1; 
@@ -65,20 +96,26 @@ html, body {
     overflow: auto; 
 }
 
-.description-content {
+.info-content {
     background-color: white; 
     width: 50%; 
 }
 
-.description-close {
+.info-close {
   color: #aaaaaa;
   float: right;
   font-size: 28px;
   font-weight: bold;
 }
 
-.description-close:hover {
+.info-close:hover {
     cursor: pointer;
+}
+
+/* Map */
+#map {
+    height: auto;
+    width: 100%; 
 }
 
 .selectors {
@@ -175,25 +212,3 @@ html, body {
 
 .timestamp-dropdown-content button:hover { background-color: #ddd; } */
 
-
-.url-links {
-    display: flex; 
-    justify-content: center;
-    align-items: center; 
-    height: 100px;
-    width: 100%;  
-    font-size: 70px; 
-    color: #353e48; 
-}
-
-.url-links:hover {
-    color: #048585; 
-    transform: scale(1.1); 
-    transition: 0.5s;
-    /* transform: rotate(20deg) */
-}
-
-.url-links i {
-    margin-bottom: 30px; 
-    cursor: pointer; 
-}
