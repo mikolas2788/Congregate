@@ -22,7 +22,7 @@ Congregate is still a work in progress as of October 2019. Some updates to be ex
 As the data utilized is currently static, long term goals would be to have a seamless automatic process in which Congregate will extract, parse and model the latest data, to provide recent and relevant data. 
 
 ### Challenges
-The greatest challenge of this project had to do with the data set itself. MTA’s turnstile data is unstandardized with little documentation. For instance, the data set would normally provide data in 4 hour sets, but would randomly begin/end in odd intervals such as 8:32. The counters at a given turnstile may also reset, but there is no set pattern. Given the magnitude of the data set’s 200,00 lines of data, and limited documentation, it was a lengthy journey of incurring technical debt without the knowledge of these anomalies or understanding MTA’s rationale for them. Some samples of the original txt format data set below. Note the time stamp in second snippet.
+The greatest challenge of this project had to do with the data set itself. MTA’s turnstile data is unstandardized with little documentation. For instance, the data set would normally provide data in 4 hour sets, but would randomly begin/end in odd intervals such as 8:32. The counters at a given turnstile may also reset, but there is no set pattern. Given the magnitude of the data set’s 200,00 lines of data, and limited documentation, it was a lengthy journey of incurring technical debt without the knowledge of these anomalies or understanding MTA’s rationale for them. Some samples of the original txt format data set below. Note the time stamp and resetting counter value in second snippet.
 
 ![](/assets/images/standard_timing.png)
 ![](/assets/images/unstandard_timing.png)
