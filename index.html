@@ -14,15 +14,13 @@
     <!-- <script src="lib/station_coords.js"></script> -->
     <script src="lib/final_data.js"></script>
     <!-- <script src="lib/turnstile_190921.js"></script>
-      <script src="lib/station_coord_generator.js"></script>
-      <script src="lib/heatmapButtons.js"></script> -->
+      <script src="lib/station_coord_generator.js"></script> -->
       <script src="lib/map_create.js"></script>
       <script src="lib/map_style.js"></script>
       <script 
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgudF818cVj9RRgX_oGbCYyungikoaZ3U&callback=initMap&libraries=visualization"
       async defer>
     </script>
-    <!-- <script src="lib/heatmapButtons.js"></script> -->
   </head>
   <body>
     <div class='main-strip'>
@@ -48,12 +46,6 @@
           <a class='url-links' href='https://angel.co/myron-yook'>
             <i class="fab fa-angellist"></i>
           </a>
-        </div>
-        <div class='info-modal' id='info-modal'>
-          <div class='info-content'>
-            <span class='info-close'>&times;</span>
-            <p>Congregate is a data visualization ...</p>
-          </div>
         </div>
         <div id="map">
         </div>
@@ -122,9 +114,43 @@
           </div> 
         </div> -->
       </div>
+      <div class='info-modal' id='info-modal'>
+        <div class='info-content'>
+          <span class='info-close'>&times;</span>
+          <p>Congregate is a data visualization of NYC’s MTA turnstile data set, which tracks the amount of people entering and
+          exiting their stations on a weekly basis. This site’s purpose is to provide the general public and small business owners
+          with an accessible visualization of where and when people congregate to better target their business. Uber drivers, food
+          truck owners, and organizations looking to advertise could benefit from this endeavor. Congregate is a javascript
+          project utilizing Google maps and heatmap API, HTML and CSS to render a seamless and aesthetic platform for potential
+          users.
+          <br><br>
+          Congregate is still a work in progress as of October 2019. Some updates to be expected in the coming weeks include
+          autoplay feature, addition of entirety of September and exit data, and stylistic improvements.
+          <br><br>
+          As the data utilized is currently static, long term goals would be to have a seamless automatic process in which
+          Congregate will extract, parse and model the latest data, to provide recent and relevant data.
+          <br><br>
+          The greatest challenge of this project had to do with the data set itself. MTA’s turnstile data is unstandardized with
+          little documentation. For instance, the data set would normally provide data in 4 hour sets, but would randomly
+          begin/end in odd intervals such as 8:32. The counters at a given turnstile may also reset, but there is no set pattern.
+          Given the magnitude of the data set’s 200,00 lines of data, and limited documentation, it was a lengthy journey of
+          incurring technical debt without the knowledge of these anomalies or understanding MTA’s rationale for them.
+          <br><br>
+          <!-- The next largest challenge was trying to find a programmatic solution to the dataset not containing the necessary
+          geographic coordinates to display the heatmap. There exists other datasets that does contain station coordinate data,
+          but there was no common key I could utilize to connect the two data sets. While I could have manually changed the names
+          of 400+ stations to ensure they’d match, this would not be sustainable for every time I’d be adding additional datasets.
+          I have temporarily chosen to mitigate this issue by utilizing Chris Whong’s publicly provided station coordinates, but
+          had previously attempted Google’s Geocode API along with Firebase, Excel’s built-in approximate/fuzzy matching, and
+          writing javascript scripts to match similar enough station names. Unfortunately, they don’t capture the fully
+          programmatic solution I have in mind.
+          <br><br> -->
+          I would like to recognize Nick Werner for his much needed assistance in parsing the unpalatable dataset and Chris
+          Whong’s coordinate data on his github.</p>
+        </div>
+      </div>
     </div>
   </body>
     <script src="dist/bundle.js"></script>
-        <script src="lib/heatmapButtons.js"></script>
-
+    <script src="lib/heatmapButtons.js"></script>
 </html>
