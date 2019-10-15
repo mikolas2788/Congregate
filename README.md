@@ -13,7 +13,7 @@ Congregate is a data visualization of NYC’s MTA turnstile data set, which trac
 
 ### Live Demo
 Check out the [live](https://mikolas2788.github.io/Congregate/) demo!
-![](https://i.imgur.com/jxqeZdd)
+![](/assets/images/main_page.png)
 
 ### Notes
 Congregate is still a work in progress as of October 2019. Some updates to be expected in the coming weeks include autoplay feature, addition of entirety of September and exit data, and stylistic improvements. 
