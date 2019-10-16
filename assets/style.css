@@ -129,9 +129,16 @@ html, body {
     display: flex; 
     flex-wrap: wrap;
     flex-direction: row; 
+    align-items: center; 
     top: 90px; 
     left: 120px; 
     text-align-last: center; 
+}
+
+.selectors button {
+    height: 50px; 
+    width: 50px; 
+    margin-right: 20px; 
 }
 
 .selectors select {
