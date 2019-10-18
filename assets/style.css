@@ -115,12 +115,18 @@ html, body {
 
 .info-close-btn {
   color: #aaaaaa;
-  float: right;
-  font-size: 28px;
+  font-size: 40px;
   font-weight: bold;
+  /* float: left;  */
+  height: 30px;
+  width: 1.5rem; 
+  line-height: 20px; 
+  text-align: center;
+  margin: 0 15px 0 0; 
 }
 
-.info-close-btn:hover {
+.info-close-btn:hover, .info-close-btn:focus {
+    color: #048585; 
     cursor: pointer;
 }
 
