@@ -125,7 +125,7 @@ html, body {
   margin: 0 15px 0 0; 
 }
 
-.info-close-btn:hover, .info-close-btn:focus {
+.info-close-btn:hover {
     color: #048585; 
     cursor: pointer;
 }
