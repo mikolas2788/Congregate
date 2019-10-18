@@ -30,6 +30,10 @@ html, body {
     font-weight: bold; 
 }
 
+.top h1:hover {
+    color: #048585; 
+}
+
 .main {
     display: flex; 
     flex-direction: row; 
@@ -105,16 +109,18 @@ html, body {
     margin: auto; 
     height: auto; 
     width: 60%; 
+    display: flex;
+    flex-direction: row; 
 }
 
-.info-close {
+.info-close-btn {
   color: #aaaaaa;
   float: right;
   font-size: 28px;
   font-weight: bold;
 }
 
-.info-close:hover {
+.info-close-btn:hover {
     cursor: pointer;
 }
 
