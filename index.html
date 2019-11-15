@@ -17,6 +17,7 @@
       <script src="lib/station_coord_generator.js"></script> -->
       <script src="lib/map_create.js"></script>
       <script src="lib/map_style.js"></script>
+      <script src="lib/heatmapButtons.js"></script>
       <script 
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgudF818cVj9RRgX_oGbCYyungikoaZ3U&callback=initMap&libraries=visualization"
       async defer>
@@ -50,9 +51,9 @@
         <div id="map">
         </div>
         <div class='selectors'>
-          <!-- <button class='autoplay-btn' id='autoplay-btn' onclick='autoPlay()'>
+          <button class='autoplay-btn' id='autoplay-btn' onclick='autoPlay()'>
             <img src="./assets/images/autoplay1.png">
-          </button> -->
+          </button>
           <select required class='train-selector' id='train-selector' onchange='heatMapRender()'>  
             <!-- <option value='All'>All Trains</option> -->
             <option value='All' default>All Trains</option>
@@ -156,5 +157,4 @@
     </div>
   </body>
     <script src="dist/bundle.js"></script>
-    <script src="lib/heatmapButtons.js"></script>
 </html>
