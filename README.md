@@ -17,7 +17,7 @@ Check out the [live](https://mikolas2788.github.io/Congregate/) demo!
 ![](/assets/images/main_page.png)
 
 ### Notes
-Congregate is still a work in progress as of October 2019. Some updates to be expected in the coming weeks include autoplay feature, addition of entirety of September and exit data, and stylistic improvements. 
+Congregate is still a work in progress as of November 2019. Some updates to be expected in the coming weeks include additional comprehensive September/October, and stylistic improvements. 
 
 As the data utilized is currently static, long term goals would be to have a seamless automatic process in which Congregate will extract, parse and model the latest data, to provide recent and relevant data. 
 
