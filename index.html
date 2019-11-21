@@ -55,7 +55,6 @@
             <img src="./assets/images/autoplay1.png">
           </button>
           <select required class='train-selector' id='train-selector' onchange='heatMapRender()'>  
-            <!-- <option value='All'>All Trains</option> -->
             <option value='All' default>All Trains</option>
             <option value='1'>1</option>
             <option value='2'>2</option>
@@ -92,31 +91,6 @@
             <option value='20:00 - 00:00'>20:00 - 00:00</option>
           </select>
         </div>
-        <!-- <div class='dropdown-buttons'> 
-          <div class='date-dropdown'>
-            <button class='date-dropdown-button'>Dates</button>
-            <div class='date-dropdown-content'>
-              <button class='date-content-unit'>09/14/2019</button>
-              <button class='date-content-unit'>09/15/2019</button>
-              <button class='date-content-unit'>09/16/2019</button>
-              <button class='date-content-unit'>09/17/2019</button>
-              <button class='date-content-unit'>09/18/2019</button>
-              <button class='date-content-unit'>09/19/2019</button>
-              <button class='date-content-unit'>09/20/2019</button>
-            </div>
-          </div>
-          <div class='timestamp-dropdown'>
-            <button class='timestamp-dropdown-button'>Time</button>
-            <div class='timestamp-dropdown-content'>
-              <button class='timestamp-content-unit'>00:00 - 04:00</button>
-              <button class='timestamp-content-unit'>04:00 - 08:00</button>
-              <button class='timestamp-content-unit'>08:00 - 12:00</button>
-              <button class='timestamp-content-unit'>12:00 - 16:00</button>
-              <button class='timestamp-content-unit'>16:00 - 20:00</button>
-              <button class='timestamp-content-unit'>20:00 - 00:00</button>
-            </div>
-          </div> 
-        </div> -->
       </div>
       <div class='info-modal' id='info-modal'>
         <div class='info-content'>
@@ -134,24 +108,6 @@
           As the data utilized is currently static, long term goals would be to have a seamless automatic process in which
           Congregate will extract, parse and model the latest data, to provide recent and relevant data.
           </p>
-          <!-- <br><br> -->
-          <!-- The greatest challenge of this project had to do with the data set itself. MTA’s turnstile data is unstandardized with
-          little documentation. For instance, the data set would normally provide data in 4 hour sets, but would randomly
-          begin/end in odd intervals such as 8:32. The counters at a given turnstile may also reset, but there is no set pattern.
-          Given the magnitude of the data set’s 200,00 lines of data, and limited documentation, it was a lengthy journey of
-          incurring technical debt without the knowledge of these anomalies or understanding MTA’s rationale for them.
-          <br><br>
-          The next largest challenge was trying to find a programmatic solution to the dataset not containing the necessary
-          geographic coordinates to display the heatmap. There exists other datasets that does contain station coordinate data,
-          but there was no common key I could utilize to connect the two data sets. While I could have manually changed the names
-          of 400+ stations to ensure they’d match, this would not be sustainable for every time I’d be adding additional datasets.
-          I have temporarily chosen to mitigate this issue by utilizing Chris Whong’s publicly provided station coordinates, but
-          had previously attempted Google’s Geocode API along with Firebase, Excel’s built-in approximate/fuzzy matching, and
-          writing javascript scripts to match similar enough station names. Unfortunately, they don’t capture the fully
-          programmatic solution I have in mind.
-          <br><br>
-          I would like to recognize Nick Werner for his much needed assistance in parsing the unpalatable dataset and Chris
-          Whong’s coordinate data on his github.</p> -->
         </div>
       </div>
     </div>
