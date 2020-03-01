@@ -135,7 +135,7 @@ html, body {
     width: 100%; 
 }
 
-.selectors {
+.map-buttons {
     position: absolute;
     display: flex; 
     flex-wrap: wrap;
@@ -146,13 +146,13 @@ html, body {
     text-align-last: center; 
 }
 
-.selectors button {
+.map-buttons button {
     height: 50px; 
     width: 50px; 
     margin-right: 20px; 
 }
 
-.selectors select {
+.map-buttons select {
     height: 30px; 
     min-width: 120px; 
     background-color: white;
@@ -160,6 +160,13 @@ html, body {
     font-family: sans-serif; 
     font-size: 15px;
     font-weight: 800; 
+}
+
+.selectors {
+    display: flex; 
+    flex-wrap: wrap;
+    flex-direction: row; 
+    align-items: center; 
 }
 
 .train-selector {
